@@ -22,10 +22,6 @@ class App extends React.Component {
     .catch(error => {
       console.log(error);
     })
-
-    // .then(users => this.setState({
-    //   users: users.data
-    // }), () => console.log(this.state.users))
   }
 
 
@@ -56,8 +52,6 @@ class App extends React.Component {
 
       
     )
-
-
         // {
         //   this.props.employees.map(employee => 
           
@@ -65,11 +59,7 @@ class App extends React.Component {
            
         //   )
         // }
-  
-        
-     
-    
-    
+   
   }
 
 }

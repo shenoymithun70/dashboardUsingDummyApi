@@ -1,15 +1,3 @@
-/* .left-side {
-  background-color: aqua;
-  width: 50%;
-  float: left;
-}
-
-.right-side {
-  background-color: burlywood;
-  width: 50%;
-  float: left;
-} */
-
 * {
   box-sizing: border-box;
 }
@@ -28,9 +16,4 @@
       flex: 1;
     }
   }
-  // .row::after {
-  //   content: "";
-  //   clear: both;
-  //   display: table;
-  // }
 }

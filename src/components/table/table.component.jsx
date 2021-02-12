@@ -1,18 +1,8 @@
 import React from 'react'
 import './table.styles.scss'
-// import './table.styles.css';
 
 
 const TablePage = ({tableData, headingColumns, title, breakOn = 'medium'}) => {
-    // let tableClass = 'table-container__table';
-
-    // if(breakOn === 'small') {
-    //   tableClass += ' table-container__table--break-sm';
-    // }else if(breakOn === 'medium') {
-    //   tableClass += ' table-container__table--break-md';
-    // }else if(breakOn === 'large') {
-    //   tableClass += ' table-container__table--break-lg';
-    // }
   
     const data = tableData.map((row, index) => {
       let rowData = [];
