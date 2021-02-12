@@ -1,0 +1,36 @@
+/* .left-side {
+  background-color: aqua;
+  width: 50%;
+  float: left;
+}
+
+.right-side {
+  background-color: burlywood;
+  width: 50%;
+  float: left;
+} */
+
+* {
+  box-sizing: border-box;
+}
+
+.homepage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 30px;
+
+  .flex-container {
+    display: flex;
+    flex-direction: column;
+
+    .flex-box {
+      flex: 1;
+    }
+  }
+  // .row::after {
+  //   content: "";
+  //   clear: both;
+  //   display: table;
+  // }
+}
