@@ -28,8 +28,8 @@ const Chart = ({chartData}) => {
     return (
     <div className="chart">
         {/* <h2>Bar Chart</h2> */}
-        <Bar data={data} width={100} height={50} options={{
-            maintainAspectRatio: true
+        <Bar data={data} width={100} height={400} options={{
+            maintainAspectRatio: false
           }} />
     </div>
  )

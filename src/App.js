@@ -4,9 +4,10 @@ import axios from 'axios';
 import {connect} from 'react-redux'
 import {loadEmployees} from './redux/table/table.actions'
 import AddEmployee from './components/form-input/AddEmployee.component.jsx'
-
+import {selectTableItems} from './redux/table/table.selector'
 import TablePage from './components/table/table.component.jsx'
 import Chart from './components/chart/chart.component.jsx'
+import {createStructuredSelector} from 'reselect'
 
 class App extends React.Component {
  
@@ -20,7 +21,7 @@ class App extends React.Component {
       loadEmployees(res.data.data)
     })
     .catch(error => {
-      console.log(error);
+    return alert(error.message) ? "" : window.location.reload();
     })
   }
 
@@ -64,9 +65,9 @@ class App extends React.Component {
 
 }
 
-const mapStateToProps = ({employees: {employees}}) => ({
-  employees
-})
+const mapStateToProps = createStructuredSelector({
+  employees: selectTableItems
+});
 
 const mapDispatchToProps = dispatch => ({
   loadEmployees: employees => 

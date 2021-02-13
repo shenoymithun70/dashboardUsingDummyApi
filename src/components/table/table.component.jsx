@@ -1,8 +1,12 @@
 import React from 'react'
-import './table.styles.scss'
+import './table.styles.css'
+import {connect} from 'react-redux'
+import {toggleTable} from '../../redux/table/table.actions'
+import {selectTableHidden} from '../../redux/table/table.selector'
+import {createStructuredSelector} from 'reselect'
 
 
-const TablePage = ({tableData, headingColumns, title, breakOn = 'medium'}) => {
+const TablePage = ({tableData, headingColumns, title, breakOn = 'medium' , hidden , toggleTable}) => {
   
     const data = tableData.map((row, index) => {
       let rowData = [];
@@ -22,10 +26,13 @@ const TablePage = ({tableData, headingColumns, title, breakOn = 'medium'}) => {
     });
   
     return(
-        <div className="parentcontainer">
-        {/* <div className="table-container__title">
-          <h2>{title}</h2>
-        </div> */}
+        <div>
+          <button onClick={toggleTable} className={`${hidden ? '' : 'active'} table-container__title`}>
+          Employees Data
+          </button>
+        {hidden ? null : (
+          <div className="parentcontainer">
+        
         <table className="table-class">
           <thead>
             <tr>
@@ -39,9 +46,21 @@ const TablePage = ({tableData, headingColumns, title, breakOn = 'medium'}) => {
           </tbody>
         </table>
         </div>
+        )}
+        
+        </div>
         
       
     );
   }
 
-export default TablePage;
+  const mapStateToProps = createStructuredSelector({
+    hidden: selectTableHidden,
+  });
+
+  const mapDispatchToProps = dispatch => ({
+    toggleTable: () => dispatch(toggleTable())
+  })
+
+
+export default connect(mapStateToProps , mapDispatchToProps)(TablePage);

@@ -9,3 +9,7 @@ export const addEmployees = employees => ({
     type: TableActionTypes.ADD_DATA,
     payload: employees
 })
+
+export const toggleTable =  () => ({
+    type: TableActionTypes.TOGGLE_TABLE,
+})

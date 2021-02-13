@@ -3,6 +3,7 @@ import {addEmployees} from './table.utils'
 
 const INITIAL_STATE = {
     employees: [],
+    hidden: false,
 }
 
 const tableReducer = (state = INITIAL_STATE , action) => {
@@ -16,6 +17,11 @@ const tableReducer = (state = INITIAL_STATE , action) => {
             return {
                 ...state,
                 employees: addEmployees(state.employees , action.payload)
+            }
+        case TableActionTypes.TOGGLE_TABLE:
+            return {
+                ...state,
+                hidden: !state.hidden
             }
             default:
                 return state;

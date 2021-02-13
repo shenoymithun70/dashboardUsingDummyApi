@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 .homepage {
@@ -10,10 +12,12 @@
 
   .flex-container {
     display: flex;
+    // position: absolute;
     flex-direction: column;
 
     .flex-box {
       flex: 1;
+      height: 100%;
     }
   }
 }
