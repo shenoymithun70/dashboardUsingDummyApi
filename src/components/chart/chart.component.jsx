@@ -1,12 +1,15 @@
 import React from 'react'
 import {Bar} from 'react-chartjs-2'
+import { connect } from 'react-redux'
+import { createStructuredSelector } from 'reselect'
+import { selectTableItems } from '../../redux/table/table.selector'
 import './chart.styles.scss'
 
-const Chart = ({chartData}) => {
-    var labels = chartData.map(function(e) {
+const Chart = ({employees}) => {
+    var labels = employees.map(function(e) {
         return e.employee_name;
     })
-    var values = chartData.map(function(e) {
+    var values = employees.map(function(e) {
         return e.employee_salary
     })
 
@@ -36,4 +39,10 @@ const Chart = ({chartData}) => {
     
 }
 
-export default Chart;
+
+const mapStateToProps = createStructuredSelector({
+  employees: selectTableItems
+});
+
+
+export default connect(mapStateToProps)(Chart);

@@ -2,13 +2,13 @@ import React from 'react'
 import './table.styles.css'
 import {connect} from 'react-redux'
 import {toggleTable} from '../../redux/table/table.actions'
-import {selectTableHidden} from '../../redux/table/table.selector'
+import {selectTableHidden , selectTableItems} from '../../redux/table/table.selector'
 import {createStructuredSelector} from 'reselect'
 
 
-const TablePage = ({tableData, headingColumns, title, breakOn = 'medium' , hidden , toggleTable}) => {
+const TablePage = ({employees, headingColumns, title, breakOn = 'medium' , hidden , toggleTable}) => {
   
-    const data = tableData.map((row, index) => {
+    const data = employees.map((row, index) => {
       let rowData = [];
       let i = 0;
   
@@ -56,7 +56,10 @@ const TablePage = ({tableData, headingColumns, title, breakOn = 'medium' , hidde
 
   const mapStateToProps = createStructuredSelector({
     hidden: selectTableHidden,
+    employees: selectTableItems
   });
+
+  
 
   const mapDispatchToProps = dispatch => ({
     toggleTable: () => dispatch(toggleTable())
